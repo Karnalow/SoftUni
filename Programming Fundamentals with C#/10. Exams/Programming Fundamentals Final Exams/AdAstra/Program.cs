@@ -9,9 +9,9 @@ namespace AdAstra
         {
             string input = Console.ReadLine();
 
-            string pattern = @"([#]|[|])(?<itemName>[A-Za-z ]+)\1(?<expirationDate>(?<day>\d{2})([\/])(?<mont>\d{2})\5(?<year>\d{2}))\1(?<calories>(?:\d{1,4}|10000))\1";
+            Regex pattern = new Regex(@"([#]|[|])(?<itemName>[A-Za-z ]+)\1(?<expirationDate>(?<day>(?:[0-2][0-9])|(?:3[01]))/(?<mont>(?:[0][1-9])|(?:1[012]))/(?<year>\d{2}))\1(?<calories>(?:\d{1,4}|10000))\1");
 
-            MatchCollection matches = Regex.Matches(input, pattern);
+            var matches = pattern.Matches(input);
 
             int totalCalories = 0;
 
