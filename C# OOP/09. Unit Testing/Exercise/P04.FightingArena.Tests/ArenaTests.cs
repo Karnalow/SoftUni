@@ -1,9 +1,6 @@
-﻿using _04.FightingArena;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace P04.FightingArena.Tests
 {
