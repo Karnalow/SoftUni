@@ -3,7 +3,55 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01.DiagonalDifference", "P01.DiagonalDifference\P01.DiagonalDifference.csproj", "{CD18130F-64A9-44D1-BD81-A0C00E95D820}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02.SquaresinMatrix", "P02.SquaresinMatrix\P02.SquaresinMatrix.csproj", "{47E4F42C-4BA5-4106-AFDC-BEEA094BAE63}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03.MaximalSum", "P03.MaximalSum\P03.MaximalSum.csproj", "{FE8F4EC1-F81B-4530-8524-F90E88B1DF24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P04.MatrixShuffling", "P04.MatrixShuffling\P04.MatrixShuffling.csproj", "{05C6C689-1A72-467E-BE05-438F91813AD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05.SnakeMoves", "P05.SnakeMoves\P05.SnakeMoves.csproj", "{1447B9E2-AB65-43F2-8877-15A9AC7D8B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P06.JaggedArrayManipulator", "P06.JaggedArrayManipulator\P06.JaggedArrayManipulator.csproj", "{1049A171-6050-4A28-B830-A8D120D040C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P10.RadioactiveMutantVampireBunnies", "P10.RadioactiveMutantVampireBunnies\P10.RadioactiveMutantVampireBunnies.csproj", "{2AF3A3D8-88F4-44FB-B311-A717228DAC83}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD18130F-64A9-44D1-BD81-A0C00E95D820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD18130F-64A9-44D1-BD81-A0C00E95D820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD18130F-64A9-44D1-BD81-A0C00E95D820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD18130F-64A9-44D1-BD81-A0C00E95D820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E4F42C-4BA5-4106-AFDC-BEEA094BAE63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E4F42C-4BA5-4106-AFDC-BEEA094BAE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E4F42C-4BA5-4106-AFDC-BEEA094BAE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E4F42C-4BA5-4106-AFDC-BEEA094BAE63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE8F4EC1-F81B-4530-8524-F90E88B1DF24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE8F4EC1-F81B-4530-8524-F90E88B1DF24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE8F4EC1-F81B-4530-8524-F90E88B1DF24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE8F4EC1-F81B-4530-8524-F90E88B1DF24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C6C689-1A72-467E-BE05-438F91813AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C6C689-1A72-467E-BE05-438F91813AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C6C689-1A72-467E-BE05-438F91813AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C6C689-1A72-467E-BE05-438F91813AD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1447B9E2-AB65-43F2-8877-15A9AC7D8B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1447B9E2-AB65-43F2-8877-15A9AC7D8B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1447B9E2-AB65-43F2-8877-15A9AC7D8B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1447B9E2-AB65-43F2-8877-15A9AC7D8B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1049A171-6050-4A28-B830-A8D120D040C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1049A171-6050-4A28-B830-A8D120D040C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1049A171-6050-4A28-B830-A8D120D040C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1049A171-6050-4A28-B830-A8D120D040C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AF3A3D8-88F4-44FB-B311-A717228DAC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF3A3D8-88F4-44FB-B311-A717228DAC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF3A3D8-88F4-44FB-B311-A717228DAC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF3A3D8-88F4-44FB-B311-A717228DAC83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
