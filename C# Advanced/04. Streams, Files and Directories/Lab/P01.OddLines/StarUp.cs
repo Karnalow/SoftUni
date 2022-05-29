@@ -7,9 +7,9 @@ namespace P01.OddLines
     {
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader(@"D:\Repositories\SoftUni\C# Advanced\04. Streams, Files and Directories\Lab\P01.OddLines\Data\input.txt");
+            using StreamReader sr = new StreamReader(@"D:\Repositories\SoftUni\C# Advanced\04. Streams, Files and Directories\Lab\P01.OddLines\Data\input.txt");
 
-            StreamWriter sw = new StreamWriter(@"D:\Repositories\SoftUni\C# Advanced\04. Streams, Files and Directories\Lab\P01.OddLines\Data\output.txt");
+            using StreamWriter sw = new StreamWriter(@"D:\Repositories\SoftUni\C# Advanced\04. Streams, Files and Directories\Lab\P01.OddLines\Data\output.txt");
 
             string line = sr.ReadLine();
             int counter = 0;
@@ -24,9 +24,6 @@ namespace P01.OddLines
                 counter++;
                 line = sr.ReadLine();
             }
-
-            sr.Close();
-            sw.Close();
         }
     }
 }
