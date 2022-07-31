@@ -13,16 +13,23 @@ namespace TetrisWithOOP
         private int infoCols;
         private int consoleRows;
         private int consoleCols;
+        private char tetrisCharacter;
 
-        public TetrisConsoleWriter(int tetrisRow, int tetrisCols, int infoCols = 11)
+        public TetrisConsoleWriter(int tetrisRow,
+            int tetrisCols,
+            char tetrisCharacter = '*',
+            int infoCols = 11)
         {
             this.tetrisRows = tetrisRow;
             this.tetrisCols = tetrisCols;
+            this.tetrisCharacter = tetrisCharacter;
             this.infoCols = infoCols;
 
             this.consoleRows = 1 + this.tetrisRows + 1;
             this.consoleCols = 1 + this.tetrisCols + 1 + this.infoCols + 1;
 
+            this.Frame = 0;
+            this.FramesToMoveFigure = 15;
 
             Console.WindowHeight = this.consoleRows + 1;
             Console.WindowWidth = this.consoleCols;
@@ -33,7 +40,11 @@ namespace TetrisWithOOP
             Console.CursorVisible = false;
         }
 
-        public void DrawAll(TetrisGameState state, ScoreManager scoreManager)
+        public int Frame { get; set; }
+
+        public int FramesToMoveFigure { get; private set; }
+
+        public void DrawAll(ITetrisGame state, ScoreManager scoreManager)
         {
             this.DrawBorder();
             this.DrawGameState(3 + this.tetrisCols, state, scoreManager);
@@ -41,7 +52,7 @@ namespace TetrisWithOOP
             this.DrawCurrentFigure(state.CurrentFigure, state.CurrentFigureRow, state.CurrentFigureCol);
         }
 
-        public void DrawGameState(int startCol, TetrisGameState state, ScoreManager scoreManager)
+        public void DrawGameState(int startCol, ITetrisGame state, ScoreManager scoreManager)
         {
             this.Write("Level:", 1, startCol);
             this.Write(state.Level.ToString(), 2, startCol);
@@ -53,7 +64,7 @@ namespace TetrisWithOOP
             this.Write(scoreManager.HighScore.ToString(), 8, startCol);
             
             this.Write("Frame:", 10, startCol);
-            this.Write(state.Frame.ToString() + " / " + (state.FramesToMoveFigure - state.Level).ToString(), 11, startCol);
+            this.Write(this.Frame.ToString() + " / " + (this.FramesToMoveFigure - state.Level).ToString(), 11, startCol);
             
             this.Write("Position:", 13, startCol);
             this.Write($"{state.CurrentFigureRow}, {state.CurrentFigureCol}", 14, startCol);
@@ -120,7 +131,7 @@ namespace TetrisWithOOP
                 {
                     if (currentFigure.Body[row, col])
                     {
-                        Write("*", row + 1 + currentFigureRow, col + 1 + currentFigureCol);
+                        Write(tetrisCharacter.ToString(), row + 1 + currentFigureRow, col + 1 + currentFigureCol);
                     }
                 }
             }
@@ -136,7 +147,7 @@ namespace TetrisWithOOP
                 {
                     if (tetrisField[row, col])
                     {
-                        line += "*";
+                        line += tetrisCharacter;
                     }
                     else
                     {
