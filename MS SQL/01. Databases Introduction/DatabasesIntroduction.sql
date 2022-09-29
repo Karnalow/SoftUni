@@ -278,6 +278,11 @@ CREATE TABLE Employees
 	Notes VARCHAR(MAX)
 )
 
+INSERT INTO Employees(Id, FirstName, LastName, Title, Notes) VALUES
+(1, 'Ivan', 'Karnalov', 'BOSS', NULL),
+(2, 'Hristo', 'Slavchev', 'Employe', NULL),
+(3, 'Angel', 'Nikolov', 'Employe', NULL)
+
 CREATE TABLE Customers
 (
 	AccountNumber INT PRIMARY KEY,
@@ -288,3 +293,193 @@ CREATE TABLE Customers
 	EmergencyNumber CHAR(10) NOT NULL,
 	Notes VARCHAR(MAX)
 )
+
+INSERT INTO Customers(AccountNumber, FirstName, LastName, PhoneNumber, EmergencyName, EmergencyNumber, Notes) VALUES
+(1, 'Ivan', 'Karnalov', '0894679971', 'Kurta', '4589126745', NULL),
+(2, 'Hristo', 'Slavchev', '0894234212', 'Shprica', '8956329056', NULL),
+(3, 'Angel', 'Nikolov', '0873672389', 'Kovacha', '8956341678', NULL)
+
+CREATE TABLE RoomStatus
+(
+	RooomStatus BIT,
+	Notes VARCHAR(MAX)
+)
+
+INSERT INTO RoomStatus(RooomStatus, Notes) VALUES
+(1, NULL),
+(0, NULL),
+(1, NULL)
+
+CREATE TABLE RoomTypes
+(
+	RoomType VARCHAR(20) NOT NULL,
+	Notes VARCHAR(MAX)
+)
+
+INSERT INTO RoomTypes(RoomType, Notes) VALUES
+('Cheap', NULL),
+('Expensive', NULL),
+('Cheap', NULL)
+
+CREATE TABLE BedTypes
+(
+	BedType VARCHAR(20) NOT NULL,
+	Notes VARCHAR(MAX)
+)
+
+INSERT INTO BedTypes(BedType, Notes) VALUES
+('Double', NULL),
+('Single', NULL),
+('Double', NULL)
+
+CREATE TABLE Rooms
+(
+	RoomNumber INT PRIMARY KEY,
+	RoomType VARCHAR(20) NOT NULL,
+	BedType VARCHAR(20) NOT NULL,
+	Rate INT,
+	RoomStatus BIT NOT NULL,
+	Notes VARCHAR(MAX)
+)
+
+INSERT INTO Rooms(RoomNumber, RoomType, BedType, Rate, RoomStatus, Notes) VALUES
+(200, 'Double', 'Double', 10, 1, NULL),
+(201, 'Single', 'Single', 8, 0, NULL),
+(202, 'Double', 'Double', 7, 1, NULL)
+
+CREATE TABLE Payments
+(
+	Id INT PRIMARY KEY,
+	EmployeeId INT NOT NULL,
+	PaymentDate DATETIME NOT NULL,
+	AccountNumber INT NOT NULL,
+	FirstDateOccupied DATETIME NOT NULL,
+	LastDateOccupied DATETIME NOT NULL,
+	TotalDays INT NOT NULL,
+	AmountCharge DECIMAL(15, 2),
+	TaxRate INT,
+	TaxAmount INT,
+	PaymentTotal DECIMAL(15, 2),
+	Notes VARCHAR(MAX)
+)
+
+INSERT INTO Payments(Id, EmployeeId, PaymentDate, AccountNumber, FirstDateOccupied, LastDateOccupied, TotalDays, AmountCharge, TaxRate, TaxAmount, PaymentTotal, Notes) VALUES
+(1, 1, GETDATE(), 1, '05-05-2012', '06-05-2012', 1, 345.12, NULL, NULL, 345.12, NULL),
+(2, 2, GETDATE(), 2, '05-05-2012', '06-05-2012', 1, 330.30, NULL, NULL, 330.30, NULL),
+(3, 3, GETDATE(), 3, '05-05-2012', '06-05-2012', 1, 500.34, NULL, NULL, 500.34, NULL)
+
+CREATE TABLE Occupancies
+(
+	Id INT PRIMARY KEY,
+	EmployeeId INT NOT NULL,
+	DateOccupied DATETIME NOT NULL,
+	AccountNumber INT NOT NULL,
+	RoomNumber INT NOT NULL,
+	RateApplied INT,
+	PhoneCharge DECIMAL(15, 2),
+	Notes VARCHAR(MAX)
+)
+
+INSERT INTO Occupancies(Id, EmployeeId, DateOccupied, AccountNumber, RoomNumber, RateApplied, PhoneCharge, Notes) VALUES
+(1, 1, '05-05-2012', 100, 200, 10, 50.50, NULL),
+(2, 2, '06-05-2012', 200, 201, 6, 100.32, NULL),
+(3, 3, '05-05-2012', 300, 202, 4, 80.99, NULL)
+
+--P16
+CREATE DATABASE SoftUni
+USE SoftUni
+
+CREATE TABLE Towns
+(
+	Id INT PRIMARY KEY IDENTITY,
+	[Name] VARCHAR(50) NOT NULL,
+)
+
+CREATE TABLE Addresses
+(
+	Id INT PRIMARY KEY IDENTITY,
+	AddressText VARCHAR(50),
+	TownId INT NOT NULL
+)
+
+CREATE TABLE Departments
+(
+	Id INT PRIMARY KEY IDENTITY,
+	[Name] VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE Employees
+(
+	Id INT PRIMARY KEY IDENTITY,
+	FirstName VARCHAR(20) NOT NULL,
+	MiddleName VARCHAR(20) NOT NULL,
+	LastName VARCHAR(20) NOT NULL,
+	JobTitle VARCHAR(20) NOT NULL,
+	DepartmentId INT NOT NULL,
+	HireDate DATETIME,
+	Salary DECIMAL(15, 2) NOT NULL,
+	AddressId INT NOT NULL
+)
+
+--P18
+INSERT INTO Towns([Name]) VALUES
+('Sofia'),
+('Plovdiv'),
+('Varna'),
+('Burgas')
+
+INSERT INTO Departments([Name]) VALUES
+('Engineering'),
+('Sales'),
+('Marketing'),
+('Software Development'),
+('Quality Assurance')
+
+INSERT INTO Employees(FirstName, MiddleName, LastName, JobTitle, DepartmentId, HireDate, Salary, AddressId) VALUES
+('Ivan', 'Ivanov', 'Ivanov', '.NET Developer', 1, 01/02/2013, 3500.00, 1),
+('Petar', 'Petrov', 'Petrov', 'Senior Engineer', 2, 02/03/2004, 4000.00, 2),
+('Maria', 'Petrova', 'Ivanova', 'Intern', 3, 28/08/2016, 525.25, 3),
+('Georgi', 'Teziev', 'Ivanov', 'CEO', 4, 09/12/2007, 3000.00, 4),
+('Peter', 'Pan', 'Pan', 'Intern', 5, 28/08/2016, 599.88, 5)
+
+--P19
+SELECT * FROM Towns
+SELECT * FROM Departments
+SELECT * FROM Employees
+
+--P20
+SELECT * FROM Towns
+ORDER BY [Name]
+
+SELECT * FROM Departments
+ORDER BY [Name]
+
+SELECT * FROM Employees
+ORDER BY Salary DESC
+
+--P21
+SELECT  [Name] FROM Towns
+	ORDER BY [Name]
+
+SELECT  [Name] FROM Departments
+	ORDER BY [Name]
+
+SELECT FirstName, LastName, JobTitle, Salary FROM Employees
+	ORDER BY FirstName, LastName, JobTitle, Salary DESC
+
+--P22
+UPDATE Employees
+	SET Salary *= 1.1
+
+SELECT Salary FROM Employees
+
+--P23
+USE Hotel
+
+UPDATE Payments
+	SET TaxRate *= 0.97
+
+SELECT TaxRate FROM Payments
+
+--P24
+DELETE FROM Occupancies
