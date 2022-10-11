@@ -59,3 +59,51 @@ SELECT * FROM Employees
 	FirstName,
 	LastName DESC,
 	MiddleName
+
+--P16
+CREATE VIEW V_EmployeesSalaries AS
+	(SELECT FirstName, LastName, Salary
+	FROM Employees)
+
+--P17
+CREATE VIEW V_EmployeeNameJobTitle AS
+	SELECT CONCAT(FirstName, ' ', ISNULL(MiddleName, ''), ' ', LastName) AS [FullName], JobTitle
+	FROM Employees
+
+--P18
+SELECT DISTINCT JobTitle FROM Employees
+
+--P19
+SELECT TOP(10) * 
+	FROM Projects
+		ORDER BY StartDate, [Name]
+
+--P20
+SELECT TOP(7)
+	FirstName, LastName, HireDate
+		FROM Employees
+			ORDER BY HireDate DESC
+
+--P21
+UPDATE Employees
+	SET Salary += Salary * 0.12
+		WHERE DepartmentID IN (1, 2, 4, 11)
+
+SELECT Salary FROM Employees
+
+--P22
+USE [Geography]
+
+SELECT PeakName 
+	FROM Peaks
+		ORDER BY PeakName
+
+--P23
+SELECT TOP(30) CountryName, [Population]
+	FROM Countries
+		WHERE ContinentCode = 'EU'
+			ORDER BY [Population] DESC, CountryName
+
+--P24
+SELECT CountryName, CountryCode, CurrencyCode
+	FROM Countries
