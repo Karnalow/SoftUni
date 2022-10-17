@@ -104,6 +104,18 @@ SELECT TOP(30) CountryName, [Population]
 		WHERE ContinentCode = 'EU'
 			ORDER BY [Population] DESC, CountryName
 
---P24
-SELECT CountryName, CountryCode, CurrencyCode
-	FROM Countries
+--P24D
+SELECT CountryName, CountryCode,
+	CASE
+		WHEN CurrencyCode = 'EUR' THEN 'Euro'
+		ELSE 'Not Euro'
+	END AS Currency
+FROM Countries
+ORDER BY CountryName ASC
+
+--P25
+USE Diablo
+
+SELECT [Name]
+	FROM Characters
+		ORDER BY [Name]
