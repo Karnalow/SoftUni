@@ -69,4 +69,16 @@ INSERT INTO Addresses(Town, Country, Streat, ZIP) VALUES
 
 --P03
 UPDATE Cigars
-SET PriceForSingleCigar
+SET PriceForSingleCigar += PriceForSingleCigar * 0.2
+WHERE TastId = 1
+
+UPDATE Brands
+SET BrandDescription = 'New description'
+WHERE BrandDescription IS NULL
+
+--P04
+ALTER TABLE Clients
+DROP CONSTRAINT FK__Clients__Address__33D4B598
+
+DELETE FROM Addresses
+WHERE Country LIKE 'C%'
