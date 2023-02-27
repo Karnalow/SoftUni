@@ -44,6 +44,7 @@ namespace SoftUni
             //Console.WriteLine(removeTown);
         }
 
+        //P13
         public static string RemoveTown(SoftUniContext context)
         {
             var townToDelete = context.Towns
@@ -73,6 +74,7 @@ namespace SoftUni
             return $"{addressesCount} addresses in {townToDelete.Name} were deleted";
         }
 
+        //P12
         public static string DeleteProjectById(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -92,6 +94,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P11
         public static string GetEmployeesByFirstNameStartingWithSa(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -115,6 +118,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P10
         public static string IncreaseSalaries(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -154,6 +158,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P09
         public static string GetLatestProjects(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -180,6 +185,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P08
         public static string GetDepartmentsWithMoreThan5Employees(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -217,6 +223,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P07
         public static string GetEmployee147(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -250,6 +257,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P06
         public static string GetAddressesByTown(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -273,6 +281,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P05
         public static string GetEmployeesInPeriod(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -309,6 +318,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P04
         public static string AddNewAddressToEmployee(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -337,6 +347,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P03
         public static string GetEmployeesFromResearchAndDevelopment(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -360,6 +371,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();   
         }
 
+        //P02
         public static string GetEmployeesWithSalaryOver50000(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
@@ -381,6 +393,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //P01
         public static string GetEmployeesFullInfo(SoftUniContext context)
         {
             StringBuilder sb = new StringBuilder();
