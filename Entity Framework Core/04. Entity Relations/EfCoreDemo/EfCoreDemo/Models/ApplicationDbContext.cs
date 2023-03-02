@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EfCoreDemo.ModelBuilding;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,29 +35,12 @@ namespace EfCoreDemo.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>()
-                .HasKey(e => new { e.Id, e.Egn});
+            modelBuilder.Entity<Department>()
+                .Property(x => x.Name)
+                .IsRequired()
+                .HasMaxLength(50);
 
-            modelBuilder.Entity<Employee>()
-                .Property(e => e.FirstName)
-                .IsRequired(); // NOT NULL
-
-            modelBuilder.Entity<Employee>()
-                .Property(e => e.FirstName)
-                .HasMaxLength(20);
-
-            modelBuilder.Entity<Employee>()
-                .Property(e => e.LastName)
-                .IsRequired()  // NOT NULL
-                .HasMaxLength(100);
-
-            modelBuilder.Entity<Employee>()
-                .Ignore(e => e.FullName);
-
-            modelBuilder.Entity<Employee>()
-                .Property(x => x.StartWorkDate)
-                .HasColumnName("StartedOn")
-                .HasColumnType("date");
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
