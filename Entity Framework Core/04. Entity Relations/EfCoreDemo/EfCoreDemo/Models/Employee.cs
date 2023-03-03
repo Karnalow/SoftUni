@@ -30,8 +30,11 @@ namespace EfCoreDemo.Models
         public int DepartmentId { get; set; }
 
         //Required property
-        [ForeignKey(nameof(DepartmentId))]
-        [InverseProperty("Employees")]
         public Department Department { get; set; }
+
+        [ForeignKey("Address")]
+        public int? AddressId { get; set; }
+
+        public Address Address { get; set; }
     }
 }
