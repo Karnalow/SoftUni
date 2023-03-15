@@ -1,0 +1,36 @@
+{
+  "usersCount": 54,
+  "users": [
+    {
+      "lastName": "Stewart",
+      "age": 39,
+      "soldProducts": {
+        "count": 9,
+        "products": [
+          {
+            "name": "Finasteride",
+            "price": 1374.01
+          },
+          {
+            "name": "Glyburide",
+            "price": 95.1
+          },
+          {
+            "name": "GOONG SECRET CALMING BATH ",
+            "price": 742.47
+          },
+          {
+            "name": "EMEND",
+            "price": 1365.51
+          },
+          {
+            "name": "Allergena",
+            "price": 109.32
+          },
+          "..."
+        ]
+      }
+    },
+    "..."
+  ]
+}
