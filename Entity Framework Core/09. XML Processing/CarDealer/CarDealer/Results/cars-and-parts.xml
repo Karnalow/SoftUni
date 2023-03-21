@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-16"?>
+<cars>
+  <car make="BMW" model="1M Coupe" travelled-distance="0">
+    <parts>
+      <part name="Spoiler" price="3000.99" />
+      <part name="Overflow tank" price="1200.99" />
+      <part name="Sunroof Glass" price="205.24" />
+      <part name="Speed reducer" price="14.99" />
+      <part name="Hinge" price="11.99" />
+      <part name="Heat shield" price="10.99" />
+    </parts>
+  </car>
+  <car make="Opel" model="Astra" travelled-distance="0">
+    <parts>
+      <part name="Decklid" price="1060.34" />
+      <part name="Exhaust clamp and bracket" price="140.99" />
+      <part name="Clutch assembly" price="120.99" />
+      <part name="Fuel tank" price="100.98" />
+      <part name="Rear Right Side Door Glass" price="100.90" />
+      <part name="Sunroof Rail" price="100.25" />
+      <part name="Front Left Side Inner door handle" price="77.99" />
+      <part name="Front fascia" price="11.99" />
+      <part name="Distributor" price="7.99" />
+      <part name="Crank pulley" price="2.80" />
+    </parts>
+  </car>
+  <car make="Opel" model="Astra" travelled-distance="0">
+    <parts>
+      <part name="Oil gasket" price="130.99" />
+      <part name="Window motor" price="123.49" />
+      <part name="Timing tape" price="40.90" />
+    </parts>
+  </car>
+  <car make="Opel" model="Astra" travelled-distance="0">
+    <parts>
+      <part name="Center-locking" price="313.99" />
+      <part name="Exhaust clamp and bracket" price="140.99" />
+      <part name="Heat shield" price="10.99" />
+    </parts>
+  </car>
+  <car make="Opel" model="Astra" travelled-distance="0">
+    <parts>
+      <part name="Welded assembly" price="1020.99" />
+      <part name="Fuel filter" price="162.99" />
+      <part name="Fascia" price="100.34" />
+    </parts>
+  </car>
+</cars>
