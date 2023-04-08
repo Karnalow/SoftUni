@@ -6,6 +6,7 @@
     using Data;
     using Newtonsoft.Json;
     using SoftJail.Data.Models;
+    using SoftJail.Data.Models.Enums;
     using SoftJail.DataProcessor.ImportDto;
 
     public class Deserializer
@@ -109,7 +110,42 @@
 
         public static string ImportOfficersPrisoners(SoftJailDbContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            var validOfficers = new List<Officer>();
+
+            var officerPrisoners = XmlConverter.Deserializer<OfficerPrisonersDto>(xmlString, "Officers");
+
+            foreach (var officerPrisoner in officerPrisoners)
+            {
+                if (!IsValid(officerPrisoner))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                var officer = new Officer()
+                {
+                    FullName = officerPrisoner.Name,
+                    Salary = officerPrisoner.Money,
+                    DepartmentId = officerPrisoner.DepartmentId,
+                    Position = Enum.Parse<Position>(officerPrisoner.Position),
+                    Weapon = Enum.Parse<Weapon>(officerPrisoner.Weapon),
+                    OfficerPrisoners = officerPrisoner.Prisoners.Select(x => new OfficerPrisoner
+                    {
+                        PrisonerId = x.Id,
+                    }).ToList()
+                };
+
+                validOfficers.Add(officer);
+
+                sb.AppendLine(String.Format(SuccessfullyImportedOfficer, officer.FullName, officer.OfficerPrisoners.Count));
+            }
+
+            context.Officers.AddRange(validOfficers);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         private static bool IsValid(object obj)

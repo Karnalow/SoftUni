@@ -14,7 +14,7 @@ namespace SoftJail.DataProcessor.ImportDto
         public string FullName { get; set; }
 
         [Required]
-        [RegularExpression("The [A-Z]{1}[a-z]*")]
+        [RegularExpression("The [A-Z]{1}[a-z]+")]
         public string NickName { get; set; }
 
         [Range(18, 65)]
@@ -24,13 +24,14 @@ namespace SoftJail.DataProcessor.ImportDto
 
         public string ReleaseDate { get; set; }
 
+        [Range(typeof(decimal), "0", "79228162514264337593543950335")]
         public decimal? Bail { get; set; }
-
-        public int CellId { get; set; }
+        
+        public int? CellId { get; set; }
 
         public IEnumerable<MailInputModel> Mails { get; set; }
     }
-
+    
     public class MailInputModel
     {
         [Required]

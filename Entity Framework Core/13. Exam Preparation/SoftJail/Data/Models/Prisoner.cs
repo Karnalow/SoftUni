@@ -13,7 +13,7 @@ namespace SoftJail.Data.Models
         public Prisoner()
         {
             this.Mails = new HashSet<Mail>();
-            this.OfficerPrisoners = new HashSet<OfficerPrisoner>();
+            this.PrisonerOfficers = new HashSet<OfficerPrisoner>();
         }
 
         public int Id { get; set; }
@@ -38,7 +38,7 @@ namespace SoftJail.Data.Models
 
         public ICollection<Mail> Mails { get; set; }
 
-        public ICollection<OfficerPrisoner> OfficerPrisoners { get; set; }
+        public ICollection<OfficerPrisoner> PrisonerOfficers { get; set; }
     }
 }
 
